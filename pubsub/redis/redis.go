@@ -37,8 +37,9 @@ const (
 // See https://redis.io/topics/streams-intro for more information
 // on the mechanics of Redis Streams.
 type redisStreams struct {
-	metadata metadata
-	client   *redis.Client
+	metadata      metadata
+	client        *redis.Client
+	clusterClient *redis.ClusterClient
 
 	logger logger.Logger
 
