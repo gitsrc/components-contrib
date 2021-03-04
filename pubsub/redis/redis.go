@@ -10,6 +10,7 @@ import (
 	"crypto/tls"
 	"errors"
 	"fmt"
+	"log"
 	"strconv"
 	"time"
 
@@ -296,6 +297,7 @@ func (r *redisStreams) pollNewMessagesLoop(stream string, handler func(msg *pubs
 
 		// Enqueue messages for the returned streams
 		for _, s := range streams {
+			log.Println(s)
 			r.enqueueMessages(s.Stream, handler, s.Messages)
 		}
 
